@@ -1,0 +1,15 @@
+.Posts {
+    display: flex;
+}
+
+.PostsInfo {
+    width: 50%;
+    background-color: #eaea31;
+    padding: 10px;
+}
+
+.PostsDetails {
+    width: 50%;
+    padding: 20px;
+    background-color: #6de06d;
+}
