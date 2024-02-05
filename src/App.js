@@ -1,7 +1,9 @@
+import {Launches} from "./components/Launches/Launches";
+
 const App = () => {
     return (
         <div>
-            App
+            <Launches/>
         </div>
     );
 };
