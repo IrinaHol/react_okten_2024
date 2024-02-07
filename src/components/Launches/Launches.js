@@ -7,8 +7,12 @@ const Launches = () => {
     const [launches, setLaunches] = useState([]);
 
     useEffect(() => {
-        launchServices.getAll().then(({data}) => setLaunches(data))
+        launchServices.getAll().then(({data}) => {
+            const filterValue = data.filter(value => value.launch_year !== '2020')
+            setLaunches(filterValue)
+        })
     }, []);
+
 
     return (
         <div>
