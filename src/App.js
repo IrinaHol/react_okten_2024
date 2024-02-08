@@ -1,7 +1,11 @@
+import {UserContainer} from "./components/users/UserContainer";
+import {CommentContainer} from "./components/comments/CommentContainer";
+
 const App = () => {
     return (
         <div>
-            App
+            {/*<UserContainer/>*/}
+            <CommentContainer/>
         </div>
     );
 };
