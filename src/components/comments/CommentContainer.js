@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
 import {commentService} from "../../services/commentService";
-import {UserForm} from "../users/UserForm";
-import {Users} from "../users/Users";
 import {CommentForm} from "./CommentForm";
 import {Comments} from "./Comments";
 

@@ -1,10 +1,10 @@
-import {axiosService} from "./axiosService";
+import {apiService} from "./apiService";
 import {urls} from "../constants/urls";
 
 
 const userService = {
-    getAll: () => axiosService(urls.users),
-    create: (user) => axiosService.post(urls.users, user)
+    getAll: () => apiService(urls.users),
+    create: (user) => apiService.post(urls.users, user)
 }
 
 export {
