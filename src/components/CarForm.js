@@ -1,11 +1,14 @@
 import {useForm} from "react-hook-form";
 import {carService} from "../services/carService";
 import {useEffect} from "react";
+import {joiResolver} from "@hookform/resolvers/joi";
+import {carValidator} from "../validators/carValidator";
 
 const CarForm = ({setTrigger, carForUpdate, setCarForUpdate}) => {
 
     const {reset, register, handleSubmit,
-        formState: {errors, isValid}, setValue} = useForm({mode: 'all'});
+        formState: {errors, isValid}, setValue} = useForm(
+            {mode: 'all', resolver: joiResolver(carValidator)});
 
     useEffect(() => {
         if (carForUpdate) {
@@ -31,25 +34,9 @@ const CarForm = ({setTrigger, carForUpdate, setCarForUpdate}) => {
     return (
         <div>
             <form onSubmit={handleSubmit(carForUpdate ? updateCar : saveCar)}>
-                <input type="text" placeholder={'brand'} {...register('brand', {
-                    pattern: {
-                        value: /^[a-zA-Zа-яА-яёЁіІїЇ]{1,20}$/,
-                        message: 'min 1 max 2 character'
-                    },
-                    required:true
-                })}/>
-                <input type="text" placeholder={'price'} {...register('price', {
-                    valueAsNumber: true,
-                    min: {value: 0, message: 'min 0'},
-                    max: {value: 1_000_000, message: 'max 1 000 000'},
-                    required:true
-                })}/>
-                <input type="text" placeholder={'year'} {...register('year', {
-                    valueAsNumber: true,
-                    min: {value: 1990, message: 'min 1990'},
-                    max: {value: new Date().getFullYear(), message: 'max current year'},
-                    required:true
-                })}/>
+                <input type="text" placeholder={'brand'} {...register('brand', {})}/>
+                <input type="text" placeholder={'price'} {...register('price', {valueAsNumber: true})}/>
+                <input type="text" placeholder={'year'} {...register('year', {valueAsNumber: true})}/>
                 <button disabled={!isValid}>{carForUpdate ? 'Update' : 'Save'}</button>
 
                 {errors.brand && <div>{errors.brand.message}</div>}
