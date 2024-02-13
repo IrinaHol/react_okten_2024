@@ -1,11 +1,12 @@
 import {useEffect, useState} from "react";
-import {postService} from "../../services/postsService";
 import {useLocation} from "react-router-dom";
+
+import {postService} from "../../services/postsService";
 import {Post} from "./Post";
 
 const Posts = () => {
 
-    const {state} = useLocation();
+    const {state} = useLocation()
 
     const [post, setPost] = useState(null)
 

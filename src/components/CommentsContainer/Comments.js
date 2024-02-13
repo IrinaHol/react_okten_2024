@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+
 import {commentsService} from "../../services/commentsService";
 import {Comment} from "./Comment";
 
@@ -10,6 +11,7 @@ const Comments = () => {
     }, []);
     return (
         <div>
+            <h2>Comments</h2>
             {
                 comments.map(comment => <Comment key={comment.id} comment={comment}/>)
             }

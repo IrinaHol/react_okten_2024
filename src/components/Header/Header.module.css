@@ -1,9 +1,19 @@
 .Header {
     display: flex;
     justify-content: space-around;
-    align-content: center;
+    /*align-content: center;*/
     height: 50px;
-    background-color: green;
+    background-color: #056005;
+    /*text-align: center;*/
 }
 
-/*.Header*/
+.Header a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.Header a[class='active']{
+    color: #fffb00;
+}
