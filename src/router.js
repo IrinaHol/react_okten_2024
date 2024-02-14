@@ -10,6 +10,7 @@ import {PostPage} from "./pages/PostPage";
 const router = createBrowserRouter([
     {
         path: '', element: <MainLayout/>, errorElement: <ErrorPage/>, children: [
+            {index: true, element: <AlbumsPage/>},
             {path: 'todos', element: <TodosPage/>},
             {path: 'albums', element: <AlbumsPage/>},
             {path: 'comments', element: <CommentsPage/>},
