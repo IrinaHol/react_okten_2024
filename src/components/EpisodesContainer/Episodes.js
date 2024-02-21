@@ -15,7 +15,7 @@ const Episodes = () => {
             setEpisodes(results)
             setPrevNext({prev: info.prev, next: info.next})
         })
-    }, [query.get('page')]);
+    }, [query]);
 
     const prev = () => {
         setQuery(prev => {
