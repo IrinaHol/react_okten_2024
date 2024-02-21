@@ -1,0 +1,11 @@
+.CharactersPage button {
+    width: 100px;
+    height: 35px;
+    border: none;
+    background-color: #32d7c6;
+    border-radius: 4px;
+    font-family: "Arial Black", sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+}

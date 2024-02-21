@@ -1,0 +1,35 @@
+.Block {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 3px 10px;
+    border: 1px black solid;
+}
+
+.boxEpisode {
+    width: 25%;
+    border: 1px black solid;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.boxEpisode a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+}
+
+.btn button {
+    width: 100px;
+    height: 35px;
+    border: none;
+    background-color: #32d7c6;
+    border-radius: 4px;
+    font-family: "Arial Black", sans-serif;
+    cursor: pointer;
+}

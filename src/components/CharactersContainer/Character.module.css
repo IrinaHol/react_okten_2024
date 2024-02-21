@@ -1,0 +1,12 @@
+.CharacterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.CharacterBox {
+    border: 1px black solid;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
