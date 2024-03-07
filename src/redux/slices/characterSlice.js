@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, isFulfilled, isPending} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, isFulfilled, isPending, isRejected} from "@reduxjs/toolkit";
 
 import {characterService} from "../../services";
 
@@ -29,13 +29,19 @@ const characterSlice = createSlice({
             .addCase(getCharactersById.fulfilled, (state, action) => {
                 state.characters = action.payload
             })
+
             .addMatcher(isFulfilled(getCharactersById), state => {
                 state.loading = false
-                state.error = null
+                state.errors = null
             })
 
             .addMatcher(isPending(getCharactersById), state => {
                 state.loading = true;
+            })
+
+            .addMatcher(isRejected(getCharactersById), (state, action) => {
+                state.errors = action.payload;
+                state.isLoading = false;
             })
 
 })
