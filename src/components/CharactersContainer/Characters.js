@@ -14,7 +14,7 @@ const Characters = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        dispatch(charactersActions.getCharactersById(id))
+        dispatch(charactersActions.getCharactersById({id}))
     }, [id, dispatch]);
 
     return (

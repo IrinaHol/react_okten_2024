@@ -14,7 +14,7 @@ const Episodes = () => {
     const {page, prevPage, nextPage} = usePageQuery()
 
     useEffect(() => {
-        dispatch(episodesActions.getAllEpisodes(page))
+        dispatch(episodesActions.getAllEpisodes({page}))
     }, [page, dispatch]);
 
     return (
