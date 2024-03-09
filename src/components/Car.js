@@ -1,6 +1,5 @@
 import {useDispatch} from "react-redux";
 
-import {carService} from "../services";
 import {carActions} from "../store";
 
 const Car = ({car}) => {
@@ -8,9 +7,8 @@ const Car = ({car}) => {
 
     const dispatch = useDispatch();
 
-    const deleteCar = async () => {
-        await carService.delete(id);
-        dispatch(carActions.trigger())
+    const deleteCar =  () => {
+        dispatch(carActions.deleteById({id}))
     }
 
     return (

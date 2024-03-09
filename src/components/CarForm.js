@@ -4,11 +4,10 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {useDispatch, useSelector} from "react-redux";
 
 import {carValidator} from "../validators/carValidator";
-import {carService} from "../services";
 import {carActions} from "../store";
 
 const CarForm = () => {
-    const {carForUpdate} = useSelector(state => state.carReducer);
+    const {carForUpdate} = useSelector(state => state.cars);
     const dispatch = useDispatch();
 
     const {
@@ -25,16 +24,13 @@ const CarForm = () => {
         }
     }, [carForUpdate, setValue])
 
-    const saveCar = async (car) => {
-        await carService.create(car);
-        dispatch(carActions.trigger())
+    const saveCar = (car) => {
+        dispatch(carActions.create({car}))
         reset();
     }
 
     const updateCar = async (car) => {
-        await carService.updateById(carForUpdate.id, car)
-        dispatch(carActions.trigger())
-        dispatch(carActions.setCarForUpdate(null))
+        dispatch(carActions.update({id: carForUpdate.id, car}))
         reset();
     }
 

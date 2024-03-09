@@ -1,16 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
-import {carService} from "../services";
 import {carActions} from "../store";
 import {Car} from "./Car";
 
 const Cars = () => {
-    const {cars, trigger} = useSelector(state => state.carReducer);
+    const {cars, trigger} = useSelector(state => state.cars);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        carService.getAll().then(({data}) => dispatch(carActions.setCar(data)))
+        dispatch(carActions.getAll())
     }, [trigger, dispatch]);
 
     return (
